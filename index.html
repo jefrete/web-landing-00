@@ -1,1501 +1,1621 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>JEF TECH — Catálogo Web</title>
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet"
-    >
-
-    <style>
-
-        /* =========================
-           RESET
-        ========================= */
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        body {
-            background: #080808;
-            color: #f5f5f5;
-            font-family: "DM Sans", sans-serif;
-            line-height: 1.5;
-        }
+  <title>WEB 01 — Corporate | JEF TECH</title>
 
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-        img {
-            width: 100%;
-            display: block;
-        }
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+
+    /* =========================================================
+       VARIABLES
+    ========================================================= */
+
+    :root {
+      --bg: #080b10;
+      --bg-soft: #0d121a;
+      --surface: #111722;
+      --surface-light: #161e2b;
+
+      --white: #f5f7fa;
+      --text: #d8dee8;
+      --muted: #8d99aa;
+
+      --blue: #00c2ff;
+      --blue-dark: #008dcc;
+      --purple: #7c5cff;
+      --green: #35e0a1;
+
+      --border: rgba(255,255,255,0.09);
+
+      --gradient: linear-gradient(
+        135deg,
+        #00c2ff 0%,
+        #7c5cff 100%
+      );
+
+      --shadow: 0 25px 70px rgba(0,0,0,0.35);
+
+      --radius: 18px;
+    }
+
+
+    /* =========================================================
+       RESET
+    ========================================================= */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "DM Sans", sans-serif;
+      background: var(--bg);
+      color: var(--white);
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+    }
+
+
+    /* =========================================================
+       UTILIDADES
+    ========================================================= */
+
+    .container {
+      width: min(1180px, 90%);
+      margin: auto;
+    }
+
+    .section {
+      padding: 120px 0;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
 
+      color: var(--blue);
+      margin-bottom: 20px;
+    }
 
-        /* =========================
-           HEADER
-        ========================= */
+    .eyebrow::before {
+      content: "";
+      width: 28px;
+      height: 2px;
+      background: var(--gradient);
+      border-radius: 10px;
+    }
 
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 100;
+    .gradient-text {
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
 
-            background: rgba(8, 8, 8, 0.75);
-            backdrop-filter: blur(18px);
 
-            border-bottom: 1px solid rgba(255,255,255,0.08);
-        }
+    /* =========================================================
+       HEADER
+    ========================================================= */
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+
+      background: rgba(8, 11, 16, 0.72);
+      backdrop-filter: blur(18px);
+
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .nav {
+      height: 76px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-family: "Manrope", sans-serif;
+      font-size: 21px;
+      font-weight: 800;
+      letter-spacing: -1px;
+    }
+
+    .logo span {
+      color: var(--blue);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 34px;
+    }
+
+    nav a {
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 600;
+
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--white);
+    }
+
+    .nav-button {
+      padding: 11px 18px;
+
+      border: 1px solid rgba(0,194,255,0.35);
+      border-radius: 8px;
+
+      color: var(--white);
+
+      background: rgba(0,194,255,0.08);
+    }
+
+    .nav-button:hover {
+      background: rgba(0,194,255,0.18);
+      border-color: var(--blue);
+    }
+
+
+    /* =========================================================
+       HERO
+    ========================================================= */
+
+    .hero {
+      position: relative;
+      min-height: 100vh;
+
+      display: flex;
+      align-items: center;
+
+      overflow: hidden;
+    }
+
+    #vanta-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .hero::after {
+      content: "";
+
+      position: absolute;
+      inset: 0;
+
+      background:
+        radial-gradient(
+          circle at 70% 35%,
+          rgba(0,194,255,0.15),
+          transparent 30%
+        ),
+        radial-gradient(
+          circle at 30% 80%,
+          rgba(124,92,255,0.12),
+          transparent 30%
+        ),
+        linear-gradient(
+          90deg,
+          rgba(8,11,16,0.96),
+          rgba(8,11,16,0.72),
+          rgba(8,11,16,0.9)
+        );
+
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+
+      background-image:
+        linear-gradient(
+          rgba(255,255,255,0.025) 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          90deg,
+          rgba(255,255,255,0.025) 1px,
+          transparent 1px
+        );
+
+      background-size: 80px 80px;
+
+      mask-image: linear-gradient(
+        to bottom,
+        black,
+        transparent
+      );
+
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 3;
 
-        .nav {
-            max-width: 1250px;
-            margin: auto;
+      padding-top: 80px;
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
 
-            height: 76px;
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
 
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+      padding: 8px 13px;
 
-            padding: 0 25px;
-        }
+      border: 1px solid rgba(53,224,161,0.22);
+      border-radius: 100px;
 
-        .logo {
-            font-family: "Manrope", sans-serif;
-            font-size: 21px;
-            font-weight: 800;
-            letter-spacing: -1px;
-        }
+      background: rgba(53,224,161,0.06);
 
-        .logo span {
-            color: #777;
-            font-weight: 500;
-        }
+      color: #a9eedd;
 
-        nav {
-            display: flex;
-            gap: 30px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
 
-            font-size: 14px;
-            color: #aaa;
-        }
+      margin-bottom: 30px;
+    }
 
-        nav a {
-            transition: 0.3s;
-        }
+    .status-dot {
+      width: 7px;
+      height: 7px;
 
-        nav a:hover {
-            color: white;
-        }
+      border-radius: 50%;
+      background: var(--green);
 
-        .nav-button {
-            border: 1px solid rgba(255,255,255,0.2);
-            padding: 10px 18px;
-            border-radius: 100px;
+      box-shadow:
+        0 0 8px var(--green),
+        0 0 18px rgba(53,224,161,0.5);
+    }
 
-            font-size: 13px;
+    .hero h1 {
+      font-family: "Manrope", sans-serif;
 
-            transition: 0.3s;
-        }
+      font-size: clamp(58px, 8vw, 110px);
 
-        .nav-button:hover {
-            background: white;
-            color: black;
-        }
+      line-height: 0.95;
+      letter-spacing: -5px;
 
+      max-width: 950px;
 
-        /* =========================
-           HERO
-        ========================= */
+      margin-bottom: 30px;
+    }
 
-        .hero {
-            min-height: 100vh;
+    .hero h1 span {
+      display: block;
+    }
 
-            display: flex;
-            align-items: center;
+    .hero-description {
+      max-width: 620px;
+      margin-left: auto;
+      margin-right: auto;
 
-            position: relative;
-            overflow: hidden;
+      color: var(--text);
 
-            padding: 130px 25px 80px;
-        }
+      font-size: 19px;
+      line-height: 1.7;
 
-        /* luces decorativas */
+      margin-bottom: 40px;
+    }
 
-        .hero::before {
-            content: "";
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 14px;
+    }
 
-            position: absolute;
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
 
-            width: 700px;
-            height: 700px;
+      padding: 15px 23px;
 
-            background: radial-gradient(
-                circle,
-                rgba(255,255,255,0.08),
-                transparent 65%
-            );
+      border-radius: 9px;
 
-            top: -300px;
-            right: -200px;
+      font-size: 14px;
+      font-weight: 700;
 
-            pointer-events: none;
-        }
+      transition: 0.3s;
 
-        .hero-content {
-            max-width: 1250px;
-            width: 100%;
-            margin: auto;
+      cursor: pointer;
+    }
 
-            position: relative;
-            z-index: 2;
-        }
+    .button-primary {
+      color: white;
 
-        .eyebrow {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
+      background: var(--gradient);
 
-            font-size: 12px;
-            letter-spacing: 2px;
+      box-shadow:
+        0 10px 35px rgba(0,194,255,0.18);
+    }
 
-            color: #999;
+    .button-primary:hover {
+      transform: translateY(-3px);
 
-            margin-bottom: 30px;
-        }
+      box-shadow:
+        0 15px 45px rgba(0,194,255,0.3);
+    }
 
-        .eyebrow::before {
-            content: "";
+    .button-secondary {
+      border: 1px solid rgba(255,255,255,0.14);
 
-            width: 7px;
-            height: 7px;
+      color: var(--white);
 
-            border-radius: 50%;
+      background: rgba(255,255,255,0.04);
+    }
 
-            background: #fff;
-            box-shadow: 0 0 15px rgba(255,255,255,0.8);
-        }
+    .button-secondary:hover {
+      background: rgba(255,255,255,0.09);
+      border-color: rgba(255,255,255,0.25);
+    }
 
-        h1 {
-            max-width: 950px;
 
-            font-family: "Manrope", sans-serif;
+    /* =========================================================
+       HERO STATS
+    ========================================================= */
 
-            font-size: clamp(55px, 9vw, 125px);
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 55px;
 
-            line-height: 0.92;
+      margin-top: 75px;
+    }
 
-            letter-spacing: -6px;
+    .hero-stats .stat {
+      text-align: center;
+    }
 
-            margin-bottom: 35px;
-        }
+    .stat strong {
+      display: block;
 
-        h1 span {
-            color: #555;
-        }
+      font-family: "Manrope", sans-serif;
+      font-size: 30px;
 
-        .hero-description {
-            max-width: 620px;
+      margin-bottom: 4px;
+    }
 
-            color: #999;
+    .stat span {
+      color: var(--muted);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
 
-            font-size: 18px;
 
-            margin-bottom: 40px;
-        }
+    /* =========================================================
+       COMPANY
+    ========================================================= */
 
-        .hero-buttons {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
+    .company {
+      background:
+        radial-gradient(
+          circle at 10% 20%,
+          rgba(0,194,255,0.06),
+          transparent 25%
+        ),
+        #0c1118;
+    }
 
-        .button {
-            display: inline-flex;
+    .company-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
 
-            align-items: center;
-            justify-content: center;
+      gap: 80px;
 
-            padding: 15px 25px;
+      align-items: center;
+    }
 
-            border-radius: 100px;
+    .company-image {
+      position: relative;
+    }
 
-            font-size: 14px;
-            font-weight: 600;
+    .company-image img {
+      height: 560px;
+      object-fit: cover;
 
-            transition: 0.3s;
-        }
+      border-radius: var(--radius);
 
-        .button-primary {
-            background: white;
-            color: black;
-        }
+      filter: saturate(0.9);
+    }
 
-        .button-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(255,255,255,0.12);
-        }
+    .image-glow {
+      position: absolute;
 
-        .button-secondary {
-            border: 1px solid rgba(255,255,255,0.15);
-            color: #ccc;
-        }
+      width: 180px;
+      height: 180px;
 
-        .button-secondary:hover {
-            border-color: rgba(255,255,255,0.4);
-            color: white;
-        }
+      right: -50px;
+      bottom: -50px;
 
+      background: var(--purple);
 
-        /* =========================
-           CATALOG
-        ========================= */
+      filter: blur(90px);
+      opacity: 0.25;
 
-        .catalog {
-            max-width: 1250px;
-            margin: auto;
+      z-index: -1;
+    }
 
-            padding: 130px 25px;
-        }
+    .company h2 {
+      font-family: "Manrope", sans-serif;
 
-        .section-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: end;
+      font-size: clamp(40px, 5vw, 65px);
 
-            margin-bottom: 50px;
-        }
+      line-height: 1.05;
+      letter-spacing: -3px;
 
-        .section-number {
-            color: #555;
-            font-size: 13px;
-            letter-spacing: 2px;
-        }
+      margin-bottom: 25px;
+    }
 
-        h2 {
-            font-family: "Manrope", sans-serif;
+    .company p {
+      color: var(--muted);
 
-            font-size: clamp(40px, 6vw, 70px);
+      font-size: 17px;
+      line-height: 1.8;
 
-            letter-spacing: -3px;
+      margin-bottom: 30px;
+    }
 
-            line-height: 1;
-        }
+    .company-list {
+      list-style: none;
 
-        .section-description {
-            max-width: 400px;
-            color: #777;
-            font-size: 15px;
-        }
+      display: grid;
+      gap: 14px;
+    }
 
+    .company-list li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
 
-        /* =========================
-           GRID
-        ========================= */
+      color: var(--text);
 
-        .catalog-grid {
-            display: grid;
+      font-size: 14px;
+    }
 
-            grid-template-columns: repeat(2, 1fr);
+    .company-list li::before {
+      content: "✓";
 
-            gap: 25px;
-        }
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-        .web-card {
-            position: relative;
+      width: 23px;
+      height: 23px;
 
-            overflow: hidden;
+      border-radius: 50%;
 
-            background: #111;
+      background: rgba(0,194,255,0.1);
+      color: var(--blue);
 
-            border: 1px solid rgba(255,255,255,0.08);
+      font-size: 12px;
+      font-weight: 700;
+    }
 
-            border-radius: 20px;
 
-            transition: 0.5s;
-        }
+    /* =========================================================
+       NUMBERS
+    ========================================================= */
 
-        .web-card:hover {
-            transform: translateY(-8px);
+    .numbers {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
 
-            border-color: rgba(255,255,255,0.2);
-        }
+      background: var(--bg);
+    }
 
-        .image-container {
-            position: relative;
+    .numbers-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
 
-            aspect-ratio: 16 / 10;
+    .number {
+      padding: 65px 30px;
 
-            overflow: hidden;
-        }
+      border-right: 1px solid var(--border);
 
-        .image-container img {
-            height: 100%;
-            object-fit: cover;
+      text-align: center;
+    }
 
-            transition: 0.7s;
-        }
+    .number:last-child {
+      border-right: none;
+    }
 
-        .web-card:hover img {
-            transform: scale(1.06);
-        }
+    .number strong {
+      display: block;
 
-        .image-overlay {
-            position: absolute;
-            inset: 0;
+      font-family: "Manrope", sans-serif;
 
-            background:
-                linear-gradient(
-                    to top,
-                    rgba(0,0,0,0.75),
-                    transparent 60%
-                );
-        }
+      font-size: 58px;
+      letter-spacing: -3px;
 
-        .web-number {
-            position: absolute;
+      margin-bottom: 8px;
+    }
 
-            top: 20px;
-            left: 20px;
+    .number strong span {
+      color: var(--blue);
+    }
 
-            font-size: 12px;
-            letter-spacing: 2px;
+    .number p {
+      color: var(--muted);
 
-            color: white;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
 
-            background: rgba(0,0,0,0.45);
 
-            padding: 8px 12px;
+    /* =========================================================
+       SERVICES
+    ========================================================= */
 
-            border-radius: 100px;
+    .section-heading {
+      max-width: 700px;
 
-            backdrop-filter: blur(10px);
-        }
+      margin-bottom: 65px;
+    }
 
-        .card-content {
-            padding: 28px;
-        }
+    .section-heading h2 {
+      font-family: "Manrope", sans-serif;
 
-        .card-category {
-            font-size: 11px;
-            letter-spacing: 2px;
+      font-size: clamp(42px, 5vw, 65px);
 
-            color: #666;
+      line-height: 1;
+      letter-spacing: -3px;
 
-            margin-bottom: 8px;
-        }
+      margin-bottom: 20px;
+    }
 
-        .card-content h3 {
-            font-family: "Manrope", sans-serif;
+    .section-heading p {
+      color: var(--muted);
 
-            font-size: 30px;
+      font-size: 17px;
+      line-height: 1.7;
+    }
 
-            letter-spacing: -1px;
+    .services-grid {
+      display: grid;
 
-            margin-bottom: 10px;
-        }
+      grid-template-columns: repeat(3, 1fr);
 
-        .card-content p {
-            color: #777;
+      gap: 16px;
+    }
 
-            font-size: 14px;
+    .service-card {
+      position: relative;
 
-            max-width: 450px;
+      min-height: 270px;
 
-            margin-bottom: 25px;
-        }
+      padding: 30px;
 
-        .card-bottom {
-            display: flex;
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,0.045),
+          rgba(255,255,255,0.015)
+        );
 
-            align-items: center;
-            justify-content: space-between;
-        }
+      border: 1px solid var(--border);
 
-        .view-button {
-            display: inline-flex;
+      border-radius: var(--radius);
 
-            align-items: center;
-            gap: 10px;
+      overflow: hidden;
 
-            font-size: 13px;
+      transition: 0.35s;
+    }
 
-            border-bottom: 1px solid #555;
+    .service-card::before {
+      content: "";
 
-            padding-bottom: 5px;
+      position: absolute;
 
-            transition: 0.3s;
-        }
+      width: 130px;
+      height: 130px;
 
-        .view-button:hover {
-            border-color: white;
-        }
+      top: -70px;
+      right: -70px;
 
-        .price {
-            color: #555;
-            font-size: 12px;
-        }
+      background: var(--blue);
 
+      filter: blur(60px);
 
-        /* =========================
-           SERVICES
-        ========================= */
+      opacity: 0;
 
-        .services {
-            background: #f2f2f0;
-            color: #0a0a0a;
+      transition: 0.35s;
+    }
 
-            padding: 130px 25px;
-        }
+    .service-card:hover {
+      transform: translateY(-7px);
 
-        .services-inner {
-            max-width: 1250px;
-            margin: auto;
-        }
+      border-color: rgba(0,194,255,0.25);
 
-        .services h2 {
-            max-width: 800px;
-        }
+      box-shadow: var(--shadow);
+    }
 
-        .services-intro {
-            max-width: 650px;
+    .service-card:hover::before {
+      opacity: 0.18;
+    }
 
-            margin-top: 25px;
+    .service-number {
+      color: var(--blue);
 
-            color: #666;
+      font-size: 12px;
+      font-weight: 700;
 
-            font-size: 17px;
-        }
+      letter-spacing: 2px;
 
-        .services-grid {
-            display: grid;
+      margin-bottom: 60px;
+    }
 
-            grid-template-columns: repeat(4, 1fr);
+    .service-card h3 {
+      font-family: "Manrope", sans-serif;
 
-            gap: 1px;
+      font-size: 23px;
 
-            margin-top: 80px;
+      margin-bottom: 12px;
+    }
 
-            border-top: 1px solid #ccc;
-        }
+    .service-card p {
+      color: var(--muted);
 
-        .service {
-            padding: 35px 25px;
+      font-size: 14px;
+      line-height: 1.7;
+    }
 
-            border-bottom: 1px solid #ccc;
 
-            border-right: 1px solid #ccc;
-        }
+    /* =========================================================
+       PROJECTS
+    ========================================================= */
 
-        .service:last-child {
-            border-right: none;
-        }
+    .projects {
+      background: #0c1118;
+    }
 
-        .service-number {
-            font-size: 12px;
-            color: #999;
+    .projects-grid {
+      display: grid;
 
-            margin-bottom: 45px;
-        }
+      grid-template-columns: 1.2fr 0.8fr;
 
-        .service h3 {
-            font-family: "Manrope", sans-serif;
+      gap: 18px;
+    }
 
-            font-size: 21px;
+    .project {
+      position: relative;
 
-            margin-bottom: 12px;
-        }
+      overflow: hidden;
 
-        .service p {
-            color: #777;
+      border-radius: var(--radius);
 
-            font-size: 14px;
-        }
+      min-height: 500px;
 
+      border: 1px solid var(--border);
+    }
 
-        /* =========================
-           PROCESS
-        ========================= */
+    .project-small {
+      min-height: 241px;
+    }
 
-        .process {
-            max-width: 1250px;
-            margin: auto;
+    .projects-small {
+      display: grid;
+      gap: 18px;
+    }
 
-            padding: 140px 25px;
-        }
+    .project img {
+      position: absolute;
+      inset: 0;
 
-        .process-grid {
-            display: grid;
+      width: 100%;
+      height: 100%;
 
-            grid-template-columns: repeat(3, 1fr);
+      object-fit: cover;
 
-            gap: 20px;
+      transition: 0.6s;
+    }
 
-            margin-top: 70px;
-        }
+    .project:hover img {
+      transform: scale(1.05);
+    }
 
-        .process-card {
-            border-top: 1px solid #333;
+    .project::after {
+      content: "";
 
-            padding-top: 25px;
-        }
+      position: absolute;
+      inset: 0;
 
-        .process-card span {
-            color: #555;
+      background:
+        linear-gradient(
+          to top,
+          rgba(5,8,12,0.95),
+          rgba(5,8,12,0.1)
+        );
+    }
 
-            font-size: 12px;
-        }
+    .project-content {
+      position: absolute;
 
-        .process-card h3 {
-            font-family: "Manrope", sans-serif;
+      left: 30px;
+      right: 30px;
+      bottom: 28px;
 
-            font-size: 25px;
+      z-index: 2;
+    }
 
-            margin: 25px 0 10px;
-        }
+    .project-label {
+      color: var(--blue);
 
-        .process-card p {
-            color: #777;
+      font-size: 11px;
+      font-weight: 700;
 
-            font-size: 14px;
-        }
+      letter-spacing: 2px;
+      text-transform: uppercase;
 
+      margin-bottom: 8px;
+    }
 
-        /* =========================
-           CTA
-        ========================= */
+    .project h3 {
+      font-family: "Manrope", sans-serif;
 
-        .cta {
-            max-width: 1250px;
+      font-size: 25px;
+    }
 
-            margin: auto;
 
-            padding: 80px 25px 150px;
-        }
+    /* =========================================================
+       CTA
+    ========================================================= */
 
-        .cta-box {
-            position: relative;
+    .cta {
+      position: relative;
 
-            overflow: hidden;
+      padding: 130px 0;
 
-            background: #151515;
+      overflow: hidden;
 
-            border: 1px solid #292929;
+      background:
+        radial-gradient(
+          circle at 50% 50%,
+          rgba(0,194,255,0.13),
+          transparent 40%
+        ),
+        #080b10;
+    }
 
-            border-radius: 25px;
+    .cta::before {
+      content: "";
 
-            padding: 80px 60px;
-        }
+      position: absolute;
 
-        .cta-box::after {
-            content: "";
+      width: 500px;
+      height: 500px;
 
-            position: absolute;
+      left: 50%;
+      top: 50%;
 
-            width: 400px;
-            height: 400px;
+      transform: translate(-50%, -50%);
 
-            right: -150px;
-            bottom: -250px;
+      border-radius: 50%;
 
-            border-radius: 50%;
+      background: var(--purple);
 
-            background: radial-gradient(
-                circle,
-                rgba(255,255,255,0.12),
-                transparent 70%
-            );
-        }
+      filter: blur(180px);
 
-        .cta-box h2 {
-            max-width: 800px;
+      opacity: 0.12;
+    }
 
-            font-size: clamp(45px, 6vw, 75px);
+    .cta-content {
+      position: relative;
+      z-index: 2;
 
-            margin-bottom: 30px;
-        }
+      text-align: center;
+    }
 
-        .cta-box p {
-            max-width: 550px;
+    .cta h2 {
+      font-family: "Manrope", sans-serif;
 
-            color: #777;
+      font-size: clamp(45px, 7vw, 85px);
 
-            margin-bottom: 35px;
-        }
+      line-height: 0.95;
 
+      letter-spacing: -4px;
 
-        /* =========================
-           FOOTER
-        ========================= */
+      max-width: 800px;
 
-        footer {
-            border-top: 1px solid #222;
+      margin: 0 auto 30px;
+    }
 
-            padding: 40px 25px;
+    .cta p {
+      color: var(--muted);
 
-            color: #555;
+      font-size: 17px;
 
-            font-size: 12px;
-        }
+      max-width: 550px;
 
-        .footer-inner {
-            max-width: 1250px;
+      margin: 0 auto 35px;
+    }
 
-            margin: auto;
 
-            display: flex;
+    /* =========================================================
+       FOOTER
+    ========================================================= */
 
-            justify-content: space-between;
+    footer {
+      border-top: 1px solid var(--border);
 
-            gap: 20px;
-        }
+      padding: 30px 0;
 
+      background: #06080c;
+    }
 
-        /* =========================
-           RESPONSIVE
-        ========================= */
+    .footer-content {
+      display: flex;
 
-        @media (max-width: 900px) {
+      align-items: center;
+      justify-content: space-between;
+    }
 
-            nav {
-                display: none;
-            }
+    .footer-logo {
+      font-family: "Manrope", sans-serif;
 
-            .catalog-grid {
-                grid-template-columns: 1fr;
-            }
+      font-weight: 800;
+    }
 
-            .services-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+    .footer-logo span {
+      color: var(--blue);
+    }
 
-            .service:nth-child(2) {
-                border-right: none;
-            }
+    .footer-text {
+      color: var(--muted);
 
-            .process-grid {
-                grid-template-columns: 1fr;
-            }
+      font-size: 12px;
+    }
 
-            .section-header {
-                display: block;
-            }
 
-            .section-description {
-                margin-top: 20px;
-            }
-        }
+    /* =========================================================
+       RESPONSIVE
+    ========================================================= */
 
+    @media (max-width: 900px) {
 
-        @media (max-width: 600px) {
+      nav {
+        display: none;
+      }
 
-            h1 {
-                letter-spacing: -3px;
-            }
+      .hero h1 {
+        letter-spacing: -3px;
+      }
 
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
+      .company-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+      }
 
-            .service {
-                border-right: none;
-            }
+      .company-image img {
+        height: 450px;
+      }
 
-            .cta-box {
-                padding: 50px 30px;
-            }
+      .services-grid {
+        grid-template-columns: 1fr 1fr;
+      }
 
-            .footer-inner {
-                flex-direction: column;
-            }
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
 
-        }
+      .projects-small {
+        grid-template-columns: 1fr 1fr;
+      }
 
-    </style>
+    }
+
+
+    @media (max-width: 600px) {
+
+      .section {
+        padding: 85px 0;
+      }
+
+      .hero {
+        min-height: 850px;
+      }
+
+      .hero-content {
+        padding-top: 100px;
+      }
+
+      .hero h1 {
+        font-size: 54px;
+        letter-spacing: -3px;
+      }
+
+      .hero-description {
+        font-size: 16px;
+      }
+
+      .hero-stats {
+        gap: 25px;
+        flex-wrap: wrap;
+      }
+
+      .stat strong {
+        font-size: 25px;
+      }
+
+      .numbers-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .number {
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .number:last-child {
+        border-bottom: none;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .projects-small {
+        grid-template-columns: 1fr;
+      }
+
+      .project,
+      .project-small {
+        min-height: 380px;
+      }
+
+      .footer-content {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+    }
+
+  </style>
 </head>
 
 
 <body>
 
 
-    <!-- =========================
-         HEADER
-    ========================= -->
+  <!-- =======================================================
+       HEADER
+  ======================================================== -->
 
-    <header>
+  <header>
 
-        <div class="nav">
+    <div class="container nav">
 
-            <a href="#" class="logo">
-                JEF<span>TECH</span>
-            </a>
+      <a href="#" class="logo">
+        JEF<span>TECH</span>
+      </a>
 
-            <nav>
-                <a href="#modelos">Modelos</a>
-                <a href="#servicios">Servicios</a>
-                <a href="#proceso">Proceso</a>
-            </nav>
+      <nav>
+        <a href="#empresa">Empresa</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#proyectos">Proyectos</a>
+        <a href="#contacto" class="nav-button">
+          Hablemos
+        </a>
+      </nav>
 
-            <a href="#contacto" class="nav-button">
-                Hablemos
-            </a>
+    </div>
 
+  </header>
+
+
+
+  <!-- =======================================================
+       HERO
+  ======================================================== -->
+
+  <section class="hero">
+
+    <div id="vanta-bg"></div>
+
+    <div class="hero-grid"></div>
+
+    <div class="container">
+
+      <div class="hero-content">
+
+        <div class="status">
+          <span class="status-dot"></span>
+          CORPORATE SYSTEM / ONLINE
         </div>
 
-    </header>
+        <h1>
+          Construimos
+          <span class="gradient-text">
+            el futuro.
+          </span>
+        </h1>
 
+        <p class="hero-description">
+          Soluciones digitales, tecnología y desarrollo
+          para empresas que necesitan crecer, mejorar
+          y competir en un mundo cada vez más conectado.
+        </p>
 
+        <div class="hero-buttons">
 
-    <!-- =========================
-         HERO
-    ========================= -->
+          <a href="#contacto" class="button button-primary">
+            Hablemos de tu proyecto →
+          </a>
 
-    <section class="hero">
-
-        <div class="hero-content">
-
-            <div class="eyebrow">
-                DIGITAL WEB SYSTEMS
-            </div>
-
-            <h1>
-                Tu negocio.<br>
-                <span>En internet.</span>
-            </h1>
-
-            <p class="hero-description">
-                Diseñamos y desarrollamos sitios web profesionales
-                listos para publicar. Elegís un modelo, adaptamos
-                tu identidad y nos ocupamos del resto.
-            </p>
-
-            <div class="hero-buttons">
-
-                <a href="#modelos" class="button button-primary">
-                    Ver modelos →
-                </a>
-
-                <a href="#servicios" class="button button-secondary">
-                    Qué incluye
-                </a>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =========================
-         CATALOGO
-    ========================= -->
-
-    <section class="catalog" id="modelos">
-
-        <div class="section-header">
-
-            <div>
-
-                <div class="section-number">
-                    01 / CATÁLOGO
-                </div>
-
-                <h2>
-                    Elegí tu web.
-                </h2>
-
-            </div>
-
-            <p class="section-description">
-                Modelos diseñados para distintos tipos de
-                negocios y profesionales. Todos pueden
-                personalizarse.
-            </p>
+          <a href="#proyectos" class="button button-secondary">
+            Ver proyectos
+          </a>
 
         </div>
 
 
-
-        <div class="catalog-grid">
-
-
-            <!-- WEB 01 -->
-
-            <article class="web-card">
-
-                <div class="image-container">
-
-                    <img
-                        src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1400&q=85"
-                        alt="Oficina moderna"
-                    >
-
-                    <div class="image-overlay"></div>
-
-                    <div class="web-number">
-                        WEB 01
-                    </div>
-
-                </div>
-
-                <div class="card-content">
-
-                    <div class="card-category">
-                        EMPRESAS
-                    </div>
-
-                    <h3>
-                        Corporate
-                    </h3>
-
-                    <p>
-                        Presencia digital sólida para empresas,
-                        estudios, consultoras y organizaciones.
-                    </p>
-
-                    <div class="card-bottom">
-
-                        <a href="#" class="view-button">
-                            Ver modelo →
-                        </a>
-
-                        <span class="price">
-                            CONSULTAR
-                        </span>
-
-                    </div>
-
-                </div>
-
-            </article>
-
-
-
-            <!-- WEB 02 -->
-
-            <article class="web-card">
-
-                <div class="image-container">
-
-                    <img
-                        src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1400&q=85"
-                        alt="Profesional trabajando"
-                    >
-
-                    <div class="image-overlay"></div>
-
-                    <div class="web-number">
-                        WEB 02
-                    </div>
-
-                </div>
-
-                <div class="card-content">
-
-                    <div class="card-category">
-                        PROFESIONALES
-                    </div>
-
-                    <h3>
-                        Professional
-                    </h3>
-
-                    <p>
-                        Una web personal elegante para abogados,
-                        arquitectos, médicos, coaches y especialistas.
-                    </p>
-
-                    <div class="card-bottom">
-
-                        <a href="#" class="view-button">
-                            Ver modelo →
-                        </a>
-
-                        <span class="price">
-                            CONSULTAR
-                        </span>
-
-                    </div>
-
-                </div>
-
-            </article>
-
-
-
-            <!-- WEB 03 -->
-
-            <article class="web-card">
-
-                <div class="image-container">
-
-                    <img
-                        src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&w=1400&q=85"
-                        alt="Evento"
-                    >
-
-                    <div class="image-overlay"></div>
-
-                    <div class="web-number">
-                        WEB 03
-                    </div>
-
-                </div>
-
-                <div class="card-content">
-
-                    <div class="card-category">
-                        EVENTOS
-                    </div>
-
-                    <h3>
-                        Event
-                    </h3>
-
-                    <p>
-                        Presentá tu evento con una experiencia
-                        digital atractiva, clara y profesional.
-                    </p>
-
-                    <div class="card-bottom">
-
-                        <a href="#" class="view-button">
-                            Ver modelo →
-                        </a>
-
-                        <span class="price">
-                            CONSULTAR
-                        </span>
-
-                    </div>
-
-                </div>
-
-            </article>
-
-
-
-            <!-- WEB 04 -->
-
-            <article class="web-card">
-
-                <div class="image-container">
-
-                    <img
-                        src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1400&q=85"
-                        alt="Restaurante"
-                    >
-
-                    <div class="image-overlay"></div>
-
-                    <div class="web-number">
-                        WEB 04
-                    </div>
-
-                </div>
-
-                <div class="card-content">
-
-                    <div class="card-category">
-                        GASTRONOMÍA
-                    </div>
-
-                    <h3>
-                        Restaurant
-                    </h3>
-
-                    <p>
-                        Menú, ubicación, reservas, contacto y
-                        una presentación visual pensada para vender.
-                    </p>
-
-                    <div class="card-bottom">
-
-                        <a href="#" class="view-button">
-                            Ver modelo →
-                        </a>
-
-                        <span class="price">
-                            CONSULTAR
-                        </span>
-
-                    </div>
-
-                </div>
-
-            </article>
-
-
-
-            <!-- WEB 05 -->
-
-            <article class="web-card">
-
-                <div class="image-container">
-
-                    <img
-                        src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1400&q=85"
-                        alt="Paisaje turístico"
-                    >
-
-                    <div class="image-overlay"></div>
-
-                    <div class="web-number">
-                        WEB 05
-                    </div>
-
-                </div>
-
-                <div class="card-content">
-
-                    <div class="card-category">
-                        TURISMO
-                    </div>
-
-                    <h3>
-                        Travel
-                    </h3>
-
-                    <p>
-                        Hoteles, cabañas, excursiones y experiencias
-                        turísticas con una presentación visual potente.
-                    </p>
-
-                    <div class="card-bottom">
-
-                        <a href="#" class="view-button">
-                            Ver modelo →
-                        </a>
-
-                        <span class="price">
-                            CONSULTAR
-                        </span>
-
-                    </div>
-
-                </div>
-
-            </article>
-
-
-
-            <!-- WEB 06 -->
-
-            <article class="web-card">
-
-                <div class="image-container">
-
-                    <img
-                        src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1400&q=85"
-                        alt="Inmobiliaria"
-                    >
-
-                    <div class="image-overlay"></div>
-
-                    <div class="web-number">
-                        WEB 06
-                    </div>
-
-                </div>
-
-                <div class="card-content">
-
-                    <div class="card-category">
-                        INMOBILIARIA
-                    </div>
-
-                    <h3>
-                        Real Estate
-                    </h3>
-
-                    <p>
-                        Propiedades, galerías, características y
-                        contacto para inmobiliarias y desarrolladores.
-                    </p>
-
-                    <div class="card-bottom">
-
-                        <a href="#" class="view-button">
-                            Ver modelo →
-                        </a>
-
-                        <span class="price">
-                            CONSULTAR
-                        </span>
-
-                    </div>
-
-                </div>
-
-            </article>
-
-
-
-            <!-- WEB 07 -->
-
-            <article class="web-card">
-
-                <div class="image-container">
-
-                    <img
-                        src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1400&q=85"
-                        alt="Local comercial"
-                    >
-
-                    <div class="image-overlay"></div>
-
-                    <div class="web-number">
-                        WEB 07
-                    </div>
-
-                </div>
-
-                <div class="card-content">
-
-                    <div class="card-category">
-                        COMERCIO
-                    </div>
-
-                    <h3>
-                        Store
-                    </h3>
-
-                    <p>
-                        Catálogo de productos preparado para convertir
-                        visitantes en consultas y ventas.
-                    </p>
-
-                    <div class="card-bottom">
-
-                        <a href="#" class="view-button">
-                            Ver modelo →
-                        </a>
-
-                        <span class="price">
-                            CONSULTAR
-                        </span>
-
-                    </div>
-
-                </div>
-
-            </article>
-
-
-
-            <!-- WEB 08 -->
-
-            <article class="web-card">
-
-                <div class="image-container">
-
-                    <img
-                        src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1400&q=85"
-                        alt="Equipo de trabajo"
-                    >
-
-                    <div class="image-overlay"></div>
-
-                    <div class="web-number">
-                        WEB 08
-                    </div>
-
-                </div>
-
-                <div class="card-content">
-
-                    <div class="card-category">
-                        SERVICIOS
-                    </div>
-
-                    <h3>
-                        Business
-                    </h3>
-
-                    <p>
-                        Una solución clara para empresas que necesitan
-                        explicar qué hacen y conseguir nuevos clientes.
-                    </p>
-
-                    <div class="card-bottom">
-
-                        <a href="#" class="view-button">
-                            Ver modelo →
-                        </a>
-
-                        <span class="price">
-                            CONSULTAR
-                        </span>
-
-                    </div>
-
-                </div>
-
-            </article>
+        <div class="hero-stats">
+
+          <div class="stat">
+            <strong>15+</strong>
+            <span>Años de experiencia</span>
+          </div>
+
+          <div class="stat">
+            <strong>48</strong>
+            <span>Proyectos realizados</span>
+          </div>
+
+          <div class="stat">
+            <strong>24/7</strong>
+            <span>Operaciones</span>
+          </div>
 
         </div>
 
-    </section>
+      </div>
+
+    </div>
+
+  </section>
 
 
 
-    <!-- =========================
-         SERVICIOS
-    ========================= -->
+  <!-- =======================================================
+       EMPRESA
+  ======================================================== -->
 
-    <section class="services" id="servicios">
+  <section class="section company" id="empresa">
 
-        <div class="services-inner">
+    <div class="container company-grid">
 
-            <div class="section-number">
-                02 / LLAVE EN MANO
-            </div>
+      <div class="company-image">
 
-            <h2>
-                Vos tenés el negocio.
-                Nosotros hacemos el resto.
-            </h2>
+        <img
+          src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=85"
+          alt="Edificio corporativo"
+        >
 
-            <p class="services-intro">
-                No entregamos solamente código. Nos ocupamos de que
-                tu proyecto llegue a internet funcionando y listo
-                para recibir clientes.
-            </p>
+        <div class="image-glow"></div>
+
+      </div>
 
 
-            <div class="services-grid">
+      <div>
 
-                <div class="service">
-
-                    <div class="service-number">
-                        01
-                    </div>
-
-                    <h3>
-                        Diseño
-                    </h3>
-
-                    <p>
-                        Diseño visual adaptado a tu marca,
-                        actividad y público.
-                    </p>
-
-                </div>
-
-
-                <div class="service">
-
-                    <div class="service-number">
-                        02
-                    </div>
-
-                    <h3>
-                        Desarrollo
-                    </h3>
-
-                    <p>
-                        Construcción de la web, formularios,
-                        galerías, catálogo y funcionalidades.
-                    </p>
-
-                </div>
-
-
-                <div class="service">
-
-                    <div class="service-number">
-                        03
-                    </div>
-
-                    <h3>
-                        Publicación
-                    </h3>
-
-                    <p>
-                        Dominio, hosting, HTTPS y puesta
-                        online del proyecto.
-                    </p>
-
-                </div>
-
-
-                <div class="service">
-
-                    <div class="service-number">
-                        04
-                    </div>
-
-                    <h3>
-                        Soporte
-                    </h3>
-
-                    <p>
-                        Mantenimiento y modificaciones
-                        posteriores cuando las necesites.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =========================
-         PROCESO
-    ========================= -->
-
-    <section class="process" id="proceso">
-
-        <div class="section-number">
-            03 / PROCESO
+        <div class="eyebrow">
+          Nuestra empresa
         </div>
 
         <h2>
-            Simple para vos.
+          Experiencia.
+          <br>
+          <span class="gradient-text">
+            Precisión.
+          </span>
+          Resultados.
         </h2>
 
+        <p>
+          Combinamos estrategia, tecnología y experiencia
+          para desarrollar soluciones que generan resultados
+          reales para nuestros clientes.
+        </p>
 
-        <div class="process-grid">
+        <ul class="company-list">
 
-            <div class="process-card">
+          <li>
+            Soluciones pensadas para crecer
+          </li>
 
-                <span>
-                    01
-                </span>
+          <li>
+            Tecnología moderna y escalable
+          </li>
 
-                <h3>
-                    Elegís un modelo
-                </h3>
+          <li>
+            Acompañamiento durante todo el proyecto
+          </li>
 
-                <p>
-                    Mirás nuestro catálogo y elegís la estructura
-                    que mejor representa tu negocio.
-                </p>
+          <li>
+            Soporte y mantenimiento continuo
+          </li>
 
-            </div>
+        </ul>
 
+      </div>
 
-            <div class="process-card">
+    </div>
 
-                <span>
-                    02
-                </span>
-
-                <h3>
-                    Lo adaptamos
-                </h3>
-
-                <p>
-                    Cambiamos colores, textos, imágenes, logo,
-                    productos y toda la identidad visual.
-                </p>
-
-            </div>
+  </section>
 
 
-            <div class="process-card">
 
-                <span>
-                    03
-                </span>
+  <!-- =======================================================
+       NUMBERS
+  ======================================================== -->
 
-                <h3>
-                    Lo publicamos
-                </h3>
+  <section class="numbers">
 
-                <p>
-                    Revisamos todo, configuramos el dominio
-                    y ponemos tu nueva web online.
-                </p>
+    <div class="container numbers-grid">
 
-            </div>
+      <div class="number">
 
+        <strong>
+          15<span>+</span>
+        </strong>
+
+        <p>
+          Años de experiencia
+        </p>
+
+      </div>
+
+      <div class="number">
+
+        <strong>
+          48<span>+</span>
+        </strong>
+
+        <p>
+          Proyectos completados
+        </p>
+
+      </div>
+
+      <div class="number">
+
+        <strong>
+          12<span>+</span>
+        </strong>
+
+        <p>
+          Mercados alcanzados
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =======================================================
+       SERVICIOS
+  ======================================================== -->
+
+  <section class="section" id="servicios">
+
+    <div class="container">
+
+      <div class="section-heading">
+
+        <div class="eyebrow">
+          Lo que hacemos
         </div>
 
-    </section>
+        <h2>
+          Tecnología para
+          <span class="gradient-text">
+            avanzar.
+          </span>
+        </h2>
+
+        <p>
+          Diseñamos soluciones digitales adaptadas a
+          las necesidades específicas de cada organización.
+        </p>
+
+      </div>
+
+
+      <div class="services-grid">
+
+
+        <article class="service-card">
+
+          <div class="service-number">
+            01 / CONSULTORÍA
+          </div>
+
+          <h3>
+            Consultoría
+          </h3>
+
+          <p>
+            Analizamos procesos, necesidades y oportunidades
+            para definir la mejor estrategia tecnológica.
+          </p>
+
+        </article>
+
+
+        <article class="service-card">
+
+          <div class="service-number">
+            02 / INGENIERÍA
+          </div>
+
+          <h3>
+            Ingeniería
+          </h3>
+
+          <p>
+            Diseñamos soluciones robustas, eficientes
+            y preparadas para crecer con tu empresa.
+          </p>
+
+        </article>
+
+
+        <article class="service-card">
+
+          <div class="service-number">
+            03 / IMPLEMENTACIÓN
+          </div>
+
+          <h3>
+            Implementación
+          </h3>
+
+          <p>
+            Convertimos las ideas y estrategias
+            en soluciones funcionando.
+          </p>
+
+        </article>
+
+
+        <article class="service-card">
+
+          <div class="service-number">
+            04 / TECNOLOGÍA
+          </div>
+
+          <h3>
+            Tecnología
+          </h3>
+
+          <p>
+            Desarrollo de plataformas, sitios web
+            y herramientas digitales modernas.
+          </p>
+
+        </article>
+
+
+        <article class="service-card">
+
+          <div class="service-number">
+            05 / MANTENIMIENTO
+          </div>
+
+          <h3>
+            Mantenimiento
+          </h3>
+
+          <p>
+            Soporte continuo para mantener tus sistemas
+            funcionando de forma segura y estable.
+          </p>
+
+        </article>
+
+
+        <article class="service-card">
+
+          <div class="service-number">
+            06 / DESARROLLO
+          </div>
+
+          <h3>
+            Desarrollo
+          </h3>
+
+          <p>
+            Creamos herramientas digitales a medida
+            para resolver problemas concretos.
+          </p>
+
+        </article>
+
+
+      </div>
+
+    </div>
+
+  </section>
 
 
 
-    <!-- =========================
-         CTA
-    ========================= -->
+  <!-- =======================================================
+       PROYECTOS
+  ======================================================== -->
 
-    <section class="cta" id="contacto">
+  <section class="section projects" id="proyectos">
 
-        <div class="cta-box">
+    <div class="container">
 
-            <div class="section-number">
-                JEF TECH / START
+      <div class="section-heading">
+
+        <div class="eyebrow">
+          Proyectos
+        </div>
+
+        <h2>
+          Trabajo que
+          <span class="gradient-text">
+            habla solo.
+          </span>
+        </h2>
+
+        <p>
+          Algunos ejemplos de proyectos desarrollados
+          para diferentes industrias y organizaciones.
+        </p>
+
+      </div>
+
+
+      <div class="projects-grid">
+
+
+        <article class="project">
+
+          <img
+            src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1400&q=85"
+            alt="Proyecto industrial"
+          >
+
+          <div class="project-content">
+
+            <div class="project-label">
+              Industria
             </div>
 
-            <h2>
-                ¿Listo para tener
-                una web profesional?
-            </h2>
+            <h3>
+              Planta Industrial
+            </h3>
 
-            <p>
-                Contanos qué hacés, qué necesitás y qué modelo
-                te gustó. Nosotros nos encargamos de convertirlo
-                en una solución digital lista para publicar.
-            </p>
+          </div>
 
-            <a
-                href="https://wa.me/5490000000000"
-                class="button button-primary"
-                target="_blank"
+        </article>
+
+
+        <div class="projects-small">
+
+
+          <article class="project project-small">
+
+            <img
+              src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=85"
+              alt="Oficinas corporativas"
             >
-                Quiero mi web →
-            </a>
+
+            <div class="project-content">
+
+              <div class="project-label">
+                Corporativo
+              </div>
+
+              <h3>
+                Headquarters
+              </h3>
+
+            </div>
+
+          </article>
+
+
+          <article class="project project-small">
+
+            <img
+              src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=85"
+              alt="Tecnología"
+            >
+
+            <div class="project-content">
+
+              <div class="project-label">
+                Tecnología
+              </div>
+
+              <h3>
+                Digital Systems
+              </h3>
+
+            </div>
+
+          </article>
+
 
         </div>
 
-    </section>
+      </div>
+
+    </div>
+
+  </section>
 
 
 
-    <!-- =========================
-         FOOTER
-    ========================= -->
+  <!-- =======================================================
+       CTA
+  ======================================================== -->
 
-    <footer>
+  <section class="cta" id="contacto">
 
-        <div class="footer-inner">
+    <div class="container">
 
-            <div>
-                © 2026 JEF TECH
-            </div>
+      <div class="cta-content">
 
-            <div>
-                Diseño · Desarrollo · Sistemas Web
-            </div>
-
+        <div class="eyebrow">
+          Próximo proyecto
         </div>
 
-    </footer>
+        <h2>
+          Hagamos algo
+          <span class="gradient-text">
+            importante.
+          </span>
+        </h2>
+
+        <p>
+          Contanos qué necesitás y encontramos
+          la mejor manera de llevarlo a internet.
+        </p>
+
+        <a
+          href="https://wa.me/5490000000000"
+          class="button button-primary"
+          target="_blank"
+        >
+          Iniciar conversación →
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =======================================================
+       FOOTER
+  ======================================================== -->
+
+  <footer>
+
+    <div class="container footer-content">
+
+      <div class="footer-logo">
+        JEF<span>TECH</span>
+      </div>
+
+      <div class="footer-text">
+        WEB 01 — CORPORATE
+      </div>
+
+      <div class="footer-text">
+        © 2026 JEF TECH
+      </div>
+
+    </div>
+
+  </footer>
+
+
+
+  <!-- =======================================================
+       THREE.JS
+  ======================================================== -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+
+
+  <!-- =======================================================
+       VANTA.JS
+  ======================================================== -->
+
+  <script src="https://cdn.jsdelivr.net/npm/vanta@0.5.24/dist/vanta.net.min.js"></script>
+
+
+  <!-- =======================================================
+       VANTA CONFIGURATION
+  ======================================================== -->
+
+  <script>
+
+    VANTA.NET({
+
+      el: "#vanta-bg",
+
+      mouseControls: true,
+      touchControls: true,
+      gyroControls: false,
+
+      minHeight: 200.00,
+      minWidth: 200.00,
+
+      scale: 1.00,
+      scaleMobile: 1.00,
+
+      color: 0x00c2ff,
+
+      backgroundColor: 0x080b10,
+
+      points: 10.00,
+
+      maxDistance: 24.00,
+
+      spacing: 17.00
+
+    });
+
+  </script>
 
 
 </body>
